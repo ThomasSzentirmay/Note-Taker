@@ -41,7 +41,7 @@ app.post('/api/notes', (req, res) => {
     }
 
     const notes = JSON.parse(data);
-    newNote.id = generateUniqueId(); // Replace this with a function that generates a unique ID
+    newNote.id = uuidv4(); // Replace this with a function that generates a unique ID
 
     notes.push(newNote);
 
