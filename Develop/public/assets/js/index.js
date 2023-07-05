@@ -1,3 +1,5 @@
+const { v4: uuidv4 } = require('uuid');
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -33,14 +35,16 @@ const getNotes = () =>
     },
   });
 
-const saveNote = (note) =>
-  fetch('/api/notes', {
+const saveNote = (note) => {
+  note.id = uuidv4();
+  return fetch('/api/notes', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(note),
   });
+};
 
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
