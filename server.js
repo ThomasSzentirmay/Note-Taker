@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
-const dbFilePath = path.join(__dirname, 'db', 'db.json'); // Update the file path to the correct location
+const dbFilePath = path.join(__dirname, 'db', 'db.json'); 
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
@@ -42,11 +42,11 @@ app.post('/api/notes', (req, res) => {
     }
 
     const notes = JSON.parse(data);
-    newNote.id = uuidv4(); // Replace this with a function that generates a unique ID
+    newNote.id = uuidv4();
 
     notes.push(newNote);
 
-    fs.writeFile(dbFilePath, JSON.stringify(notes), (err) => {
+    fs.writeFile(dbFilePath, JSON.stringify(notes, null, 2), (err) => {
       if (err) {
         console.error(err);
         return res.status(500).json({ error: 'An error occurred while saving the note.' });
