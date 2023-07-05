@@ -3,13 +3,13 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3333;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
-const dbFilePath = path.join(__dirname, './db.json');
+const dbFilePath = path.join(__dirname, 'db', 'db.json'); // Update the file path to the correct location
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
@@ -66,7 +66,7 @@ app.delete('/api/notes/:id', (req, res) => {
     }
 
     let notes = JSON.parse(data);
-    const deletedNoteIndex = notes.findIndex(note => note.id === noteId);
+    const deletedNoteIndex = notes.findIndex((note) => note.id === noteId);
 
     if (deletedNoteIndex === -1) {
       return res.status(404).json({ error: 'Note not found' });
@@ -86,5 +86,5 @@ app.delete('/api/notes/:id', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server listening on PORT ${PORT}`);
+  console.log(`Server successfully started on PORT ${PORT}`);
 });
