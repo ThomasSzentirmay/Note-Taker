@@ -6,9 +6,9 @@ This note taking app is built with HTML, CSS, JavaScript, NodeJS, Express, and d
 
 A challenge I faced when building this app was routing the server correctly. I originally forgot to use the api route, but managed to get it working after a while, and the app is now fully functional!
 
-Access the deployed heroku application at this link:
+Access the deployed heroku application at this link: https://afternoon-basin-98264-95be848c6631.herokuapp.com/
 
-
+![Screenshot 2023-07-07 205751](https://github.com/ThomasSzentirmay/SVG-Logo-Maker/assets/132217664/ebe611c1-c190-4c15-99b2-997393bda6ca)
 
 ## Installation
 
